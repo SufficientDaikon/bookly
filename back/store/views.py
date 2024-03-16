@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -26,13 +27,13 @@ def login_view(request):
 
 def register(request):
     if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
-        try:
-            user = User.objects.create_user(username, password=password)
-            user.save()
-            return Response({'status': 'success'})
-        except IntegrityError:
-            return Response({'status': 'error', 'message': 'Username already exists.'})
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            try:
+                user = form.save()
+                # Redirect to login page after successful registration
+                token, created = Token.objects.get_or_create(user=user)
+                return Response({"token": token.key})
+            except IntegrityError:
+                return Response({"status": "erorr", "message": "username already exists"})
     return Response({'status': 'error', 'message': 'Invalid request method.'})
-        
