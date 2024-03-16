@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 Pipfile
 Pipfile.lock
 .env
+=======
+pipfile
+pipfile.lock
+*/node_modules
+node_modules
+>>>>>>> 66beba28b905f6c27aadbc8885f051adb9114d1b

@@ -41,8 +41,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'rest_framework',
+<<<<<<< HEAD:back/bookapp/settings.py
     'corsheaders',
     'store',
+=======
+>>>>>>> 66beba28b905f6c27aadbc8885f051adb9114d1b:api/back/bookapp/settings.py
 ]
 
 MIDDLEWARE = [
@@ -82,15 +85,33 @@ WSGI_APPLICATION = "bookapp.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
 DATABASES = {
+<<<<<<< HEAD:back/bookapp/settings.py
     "default": {
         "ENGINE": "django.db.backends.mysql",
         'NAME': 'bookly',
         'USER': 'root',
         'PASSWORD': '1234',
         'HOST': 'localhost',
+=======
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bookly',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',  # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+>>>>>>> 66beba28b905f6c27aadbc8885f051adb9114d1b:api/back/bookapp/settings.py
     }
 }
+
 
 
 # Password validation

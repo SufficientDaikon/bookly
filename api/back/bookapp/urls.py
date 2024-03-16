@@ -15,9 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+<<<<<<< HEAD:back/bookapp/urls.py
 from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("store/", include("store.urls"))
+=======
+from django.urls import path
+from .view import api_login
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path('api/login/', api_login, name='api_login'),
+>>>>>>> 66beba28b905f6c27aadbc8885f051adb9114d1b:api/back/bookapp/urls.py
 ]
