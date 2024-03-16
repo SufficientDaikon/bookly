@@ -85,10 +85,11 @@ WSGI_APPLICATION = "bookapp.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        'NAME': 'bookly',
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
+        'NAME': environ["DBNAME"],
+        'HOST': environ["DBHOST"],
+        'USER': environ["DBUSER"],
+        'PASSWORD': environ["DBPASS"],
+        'PORT': environ["DBPORT"]
     }
 }
 

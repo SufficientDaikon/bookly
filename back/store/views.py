@@ -31,7 +31,6 @@ def register(request):
         if form.is_valid():
             try:
                 user = form.save()
-                # Redirect to login page after successful registration
                 token, created = Token.objects.get_or_create(user=user)
                 return Response({"token": token.key})
             except IntegrityError:
